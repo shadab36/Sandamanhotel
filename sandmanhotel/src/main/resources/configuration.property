@@ -1,0 +1,10 @@
+browser=chrome
+browser2=FireFox
+base_url=http://integration-www-sandman.mobiusbookingengine.com
+sauce_url=http://Jam007:648a7b23-d15a-419c-b59a-65fcae2e9cf8@ondemand.saucelabs.com:80/wd/hub
+oncloud=yes
+onjenkins=no
+local_Fifefox_browser=CommonData.Firefox_Name, CommonData.Firefox_Path
+local_browser=CommonData.Chrome_Name, CommonData.Chrome_Path
+localtest=no
+localtestFF=no
