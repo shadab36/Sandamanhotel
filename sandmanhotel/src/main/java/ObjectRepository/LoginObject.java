@@ -49,5 +49,16 @@ public class LoginObject {
 	public static By registered_email = By.cssSelector(".space-container>input");
 	public static By register_cta = By.cssSelector(".init-button");
 	public static By valid_message = By.cssSelector(".vue-toast_message");
+	
+	
+	
+	// mobile_devices
+	
+	public static By Menu=By.id("mobile-menu-opener");
+	 public static By login=By.xpath("//*[@class='ks-btn']");
+	 public static By new_register=By.xpath("//*[text()='Register Now']");
+	 public static By next_button=By.xpath("(//*[@class='init-button'])[1]");
+	 public static By Select_Title=By.xpath("//*[contains(text(),'Select Title')]");
+	 
 
 }

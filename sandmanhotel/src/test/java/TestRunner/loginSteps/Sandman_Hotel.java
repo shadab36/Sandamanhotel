@@ -1,15 +1,17 @@
 package TestRunner.loginSteps;
 
+import java.util.concurrent.TimeUnit;
+
+import org.apache.log4j.Logger;
 import org.junit.Assert;
+
 import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
-
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
-
 import ObjectRepository.LoginObject;
 import TestRunner.SetupClass;
 import cucumber.api.java.en.And;
@@ -18,30 +20,35 @@ import cucumber.api.java.en.Then;
 import webApp.PerformAction;
 
 public class Sandman_Hotel extends SetupClass {
-
+	public static WebElement webelement;
 	PerformAction action = new PerformAction();
 	JavascriptExecutor js = (JavascriptExecutor) driver;
-
+	Actions act = new Actions(driver);
 	@Given("^navigates to integration-www-sandman.mobiusbookingengine.com$")
-	public void navigates_to_intelligencebank_com() {
+	public void navigates_to_www_com_sandman_mobiusbookingengine() throws InterruptedException {
 		try {
+			
 			driver.get(baseURL);
-			Thread.sleep(2000);
-			log.info("It's opening Login page");
+			Thread.sleep(5000);
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			log.info("It's opening the home page");
 		} catch (Exception e) {
+
 		}
 	}
 
 	@Then("^he/she click on login CTA\\.$")
 	public void he_she_click_on_login_CTA() {
 		try {
-			WebElement et = driver.findElement(LoginObject.login_link);
-			Assert.assertEquals(true, et.isDisplayed());
-			String text = et.getText();
+			webelement = driver.findElement(LoginObject.login_link);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			et.click();
+			webelement.click();
 			action.implictywait(driver);
+			log.info("It's clciking on login CTA");
 		} catch (Exception e) {
 		}
 	}
@@ -50,14 +57,16 @@ public class Sandman_Hotel extends SetupClass {
 	public void he_she_click_on_register_button() {
 		try {
 
-			WebElement wet = driver.findElement(LoginObject.Register);
-			Assert.assertEquals(true, wet.isDisplayed());
-			String text = wet.getText();
+			webelement = driver.findElement(LoginObject.Register);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			wet.click();
+			act.click(webelement).build().perform();
+			driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 			action.implictywait(driver);
-			log.info("It's click on register button");
+			Thread.sleep(1000);
+			log.info("It's clicking on register link");
 		} catch (Exception e) {
 
 		}
@@ -65,26 +74,33 @@ public class Sandman_Hotel extends SetupClass {
 
 	@Then("^he/she provides the userEmail as \"([^\"]*)\"\\.$")
 	public void he_she_provides_the_userEmail_as(String email) {
-		try {
-			WebElement wet = driver.findElement(LoginObject.user_email);
-			Assert.assertEquals(true, wet.isDisplayed());
-			String text = wet.getText();
-			System.out.println(text);
-			action.implictywait(driver);
-			wet.sendKeys(email);
-			action.implictywait(driver);
-			log.info("It's entering email");
-		} catch (Exception e) {
-		}
+
+		webelement = driver.findElement(LoginObject.user_email);
+		Assert.assertEquals(true, webelement.isDisplayed());
+		String text = webelement.getText();
+		System.out.println(text);
+		action.implictywait(driver);
+		act.click(webelement).build().perform();
+		action.implictywait(driver);
+		act.sendKeys(email).build().perform();
+		action.implictywait(driver);
+		log.info("It's entering the user email Address");
 
 	}
 
 	@Then("^he/she provides the Confirm_Email address as \"([^\"]*)\"\\.$")
 	public void he_she_provides_the_Confirm_Email_address_as(String Confirmemail) {
 		try {
-			driver.findElement(LoginObject.Confirm_useremail).sendKeys(Confirmemail);
+			webelement = driver.findElement(LoginObject.Confirm_useremail);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
+			System.out.println(text);
 			action.implictywait(driver);
-			log.info("It's entering Reenter email");
+			act.click(webelement).build().perform();
+			action.implictywait(driver);
+			act.sendKeys(Confirmemail).build().perform();
+			action.implictywait(driver);
+			log.info("It's entering the Reenter email Address");
 		} catch (Exception e) {
 		}
 	}
@@ -92,14 +108,16 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she provides the password as \"([^\"]*)\"\\.$")
 	public void he_she_provides_the_password_as(String password) {
 		try {
-			WebElement wet = driver.findElement(LoginObject.Passfield);
-			Assert.assertEquals(true, wet.isDisplayed());
-			String text = wet.getText();
+			webelement = driver.findElement(LoginObject.Passfield);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			wet.sendKeys(password);
+			act.click(webelement).build().perform();
 			action.implictywait(driver);
-			log.info("It's entering password");
+			act.sendKeys(password).build().perform();
+			action.implictywait(driver);
+			log.info("It's entering the password");
 		} catch (Exception e) {
 		}
 	}
@@ -107,14 +125,16 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she provides the confirm_password as \"([^\"]*)\"\\.$")
 	public void he_she_provides_the_confirm_password_as(String Confirm_pswd) {
 		try {
-			WebElement wet = driver.findElement(LoginObject.Con_Passfield);
-			Assert.assertEquals(true, wet.isDisplayed());
-			String text = wet.getText();
+			webelement = driver.findElement(LoginObject.Con_Passfield);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			wet.sendKeys(Confirm_pswd);
+			act.click(webelement).build().perform();
 			action.implictywait(driver);
-			log.info("It's entering confirm password");
+			act.sendKeys(Confirm_pswd).build().perform();
+			action.implictywait(driver);
+			log.info("It's entering the confirm password");
 		} catch (Exception e) {
 		}
 	}
@@ -133,10 +153,13 @@ public class Sandman_Hotel extends SetupClass {
 	public void he_she_scroll_the_page() {
 		try {
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			WebElement element = driver.findElement(LoginObject.Next_CTA);
+			webelement = driver.findElement(LoginObject.Next_CTA);
 			Thread.sleep(1000);
-			js.executeScript("arguments[0].scrollIntoView();", element);
-			Thread.sleep(1000);
+			String text = webelement.getText();
+			System.out.println(text);
+//			js.executeScript("arguments[0].scrollIntoView();", webelement);
+//			Thread.sleep(1000);
+//			log.info("It's minimize the banner");
 		} catch (Exception e) {
 		}
 	}
@@ -144,9 +167,11 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she Verify \"([^\"]*)\" for \"([^\"]*)\" validation message for user email address\\.$")
 	public void he_she_Verify_for_validation_message_for_user_email_address(String arg1, String arg2) {
 		try {
-
+			PerformAction.SLEEP_TIME = 1000;
+			log.info("It'verify the email addresss");
 		} catch (Exception e) {
 			e.printStackTrace();
+
 		}
 	}
 
@@ -155,7 +180,7 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 
 			PerformAction.SLEEP_TIME = 1000;
-
+			log.info("It's 'verify the confirm email addresss");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -166,7 +191,7 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 
 			PerformAction.SLEEP_TIME = 1000;
-
+			log.info("It's 'verify the password");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -177,7 +202,7 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 
 			PerformAction.SLEEP_TIME = 1000;
-
+			log.info("It's 'verify the confirm password");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -190,6 +215,7 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 			PerformAction.SLEEP_TIME = 1000;
 
+			log.info("It's 'verify the all condition for page1");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -200,17 +226,17 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			WebElement element = driver.findElement(LoginObject.Next_CTA);
+			webelement = driver.findElement(LoginObject.Next_CTA);
 			action.implictywait(driver);
-			js.executeScript("arguments[0].scrollIntoView();", element);
+			//js.executeScript("arguments[0].scrollIntoView();", webelement);
 			action.implictywait(driver);
-			Assert.assertEquals(true, element.isDisplayed());
-			String text = element.getText();
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			js.executeScript("arguments[0].click();", element);
+			js.executeScript("arguments[0].click();", webelement);
 			action.implictywait(driver);
-			log.info("It's entering password");
+			log.info("It's clicking on next CTA");
 		} catch (Exception e) {
 		}
 	}
@@ -231,14 +257,16 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she provides the Firstname name as \"([^\"]*)\"\\.$")
 	public void he_she_provides_the_Firstname_name_as(String FN) {
 		try {
-			WebElement wet = driver.findElement(LoginObject.First_name);
-			Assert.assertEquals(true, wet.isDisplayed());
-			String text = wet.getText();
+			webelement = driver.findElement(LoginObject.First_name);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			wet.sendKeys(FN);
+			act.click(webelement).build().perform();
 			action.implictywait(driver);
-			log.info("It's entering FN");
+			act.sendKeys(FN).build().perform();
+			action.implictywait(driver);
+			log.info("It's entering User FirstName");
 		} catch (Exception e) {
 		}
 	}
@@ -246,14 +274,16 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she provides the surname name as \"([^\"]*)\"\\.$")
 	public void he_she_provides_the_surname_name_as(String SN) {
 		try {
-			WebElement web = driver.findElement(LoginObject.sur_name);
-			Assert.assertEquals(true, web.isDisplayed());
-			String text = web.getText();
+			webelement = driver.findElement(LoginObject.sur_name);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			web.sendKeys(SN);
+			act.click(webelement).build().perform();
 			action.implictywait(driver);
-			log.info("It's entering Surname");
+			act.sendKeys(SN).build().perform();
+			action.implictywait(driver);
+			log.info("It's entering the user Surname");
 		} catch (Exception e) {
 		}
 	}
@@ -261,14 +291,15 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she select the country options\\.$")
 	public void he_she_select_the_country_options() {
 		try {
-			WebElement web = driver.findElement(LoginObject.Select_country);
-			Assert.assertEquals(true, web.isDisplayed());
-			String text = web.getText();
+			webelement = driver.findElement(LoginObject.Select_country);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
 			Select drpCountry = new Select(driver.findElement(LoginObject.Select_country));
 			drpCountry.selectByVisibleText("India");
 			action.implictywait(driver);
+			log.info("It's Selecting the country option from dropdown");
 		} catch (Exception e) {
 
 		}
@@ -277,19 +308,14 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she select the Gender option\\.$")
 	public void he_she_select_the_Gender_option() {
 		try {
-			WebElement et = driver.findElement(LoginObject.Select_Gender);
-			Assert.assertEquals(true, et.isDisplayed());
-			String text = et.getText();
+			webelement = driver.findElement(LoginObject.Select_Gender);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
 			Select genderoption = new Select(driver.findElement(LoginObject.Select_Gender));
 			genderoption.selectByVisibleText("Male");
-
-			// Actions a = new Actions(driver);
-			// a.click(et).build().perform();
-			// Thread.sleep(1000);
-			// a.sendKeys("Male").build().perform();
-			log.info("It's select gender option");
+			log.info("It's select the gender option");
 		} catch (Exception e) {
 		}
 	}
@@ -297,12 +323,12 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she check the term & conditions\\.$")
 	public void he_she_check_the_term_conditions() {
 		try {
-			WebElement et = driver.findElement(LoginObject.Check_TC);
-			Assert.assertEquals(true, et.isDisplayed());
-			String text = et.getText();
+			webelement = driver.findElement(LoginObject.Check_TC);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			et.click();
+			webelement.click();
 			action.implictywait(driver);
 			log.info("It's checking term&condition");
 		} catch (Exception e) {
@@ -312,12 +338,12 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she check the Privacy Policy\\.$")
 	public void he_she_check_the_Privacy_Policy() {
 		try {
-			WebElement et = driver.findElement(LoginObject.Check_PP);
-			Assert.assertEquals(true, et.isDisplayed());
-			String text = et.getText();
+			webelement = driver.findElement(LoginObject.Check_PP);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			et.click();
+			webelement.click();
 			action.implictywait(driver);
 			log.info("It's checking Privacy Policy");
 		} catch (Exception e) {
@@ -329,23 +355,23 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 
 			JavascriptExecutor js = (JavascriptExecutor) driver;
-			WebElement el = driver.findElement(LoginObject.Register_CTA);
-			Assert.assertEquals(true, el.isDisplayed());
-			String text = el.getText();
+			webelement = driver.findElement(LoginObject.Register_CTA);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			js.executeScript("arguments[0].click();", el);
+			js.executeScript("arguments[0].click();", webelement);
 			action.implictywait(driver);
-			log.info("It's click on register");
+			log.info("It's click on the register CTA");
 		} catch (Exception e) {
 		}
 	}
 
 	@Then("^he/she verify \"([^\"]*)\" for \"([^\"]*)\" validation message for Firstname\\.$")
-	public void he_she_verify_for_validation_message_for_Firstname(String arg1, String arg2)throws Exception  {
+	public void he_she_verify_for_validation_message_for_Firstname(String arg1, String arg2) throws Exception {
 		try {
 			PerformAction.SLEEP_TIME = 1000;
-
+			log.info("It's verfify  the firstname");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -355,18 +381,19 @@ public class Sandman_Hotel extends SetupClass {
 	public void he_she_verify_for_validation_message_for_Surname(String arg1, String arg2) throws Exception {
 		try {
 			PerformAction.SLEEP_TIME = 1000;
-
+			log.info("It's verfify the Surname ");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
 
 	@Then("^he/she \"([^\"]*)\" for \"([^\"]*)\" for \"([^\"]*)\" validation message for all invalid credentials\\.$")
-	public void he_she_for_for_validation_message_for_all_invalid_credentials(String arg1, String arg2, String arg3)throws Exception  {
+	public void he_she_for_for_validation_message_for_all_invalid_credentials(String arg1, String arg2, String arg3)
+			throws Exception {
 
 		try {
 			PerformAction.SLEEP_TIME = 1000;
-
+			log.info("It's verify the Name and surname credentials");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -376,10 +403,10 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she click on menu option\\.$")
 	public void he_she_click_on_menu_option() {
 		try {
-			WebElement ele = driver.findElement(LoginObject.menu_option);
+			webelement = driver.findElement(LoginObject.menu_option);
 			action.implictywait(driver);
 			Thread.sleep(5000);
-			js.executeScript("arguments[0].click();", ele);
+			js.executeScript("arguments[0].click();", webelement);
 			action.implictywait(driver);
 			log.info("It's open the menu option");
 		} catch (Exception e) {
@@ -387,15 +414,14 @@ public class Sandman_Hotel extends SetupClass {
 		}
 	}
 
-
 	@And("^he/she logout the application\\.$")
 	public void he_she_logout_the_application() {
 		try {
-			WebElement lout=driver.findElement(LoginObject.logout);
+			webelement = driver.findElement(LoginObject.logout);
 			action.implictywait(driver);
-			js.executeScript("arguments[0].click();", lout);
+			js.executeScript("arguments[0].click();", webelement);
 			Thread.sleep(5000);
-			//action.implictywait(driver);
+			// action.implictywait(driver);
 			log.info("It's logout the app");
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -405,41 +431,58 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she provides the password \"([^\"]*)\"\\.$")
 	public void he_she_login_the_app(String pass) {
 		try {
-		WebElement et=driver.findElement(LoginObject.user_password);
-			et.sendKeys(pass);
+			webelement = driver.findElement(LoginObject.user_password);
+			webelement.sendKeys(pass);
 			action.implictywait(driver);
-			log.info("It's login the app");
+			log.info("the user provide the password");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-	
+
 	}
+
 	@Then("^he/she click on login cta\\.$")
 	public void he_she_click_on_login() {
 		try {
-			
-			WebElement element = driver.findElement(LoginObject.Login_button);
+
+			webelement = driver.findElement(LoginObject.Login_button);
 			Thread.sleep(1000);
-			Assert.assertEquals(true, element.isDisplayed());
-			String text = element.getText();
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
 			System.out.println(text);
 			action.implictywait(driver);
-			js.executeScript("arguments[0].click();", element);
+			js.executeScript("arguments[0].click();", webelement);
 			action.implictywait(driver);
 			WebDriverWait wait = new WebDriverWait(driver, 15);
-		 	wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".init-button")));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".init-button")));
+			log.info("It's click on login  the app");
+
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 	@And("^he/she \"([^\"]*)\" for \"([^\"]*)\" and \"([^\"]*)\" for invalid credentials\\.$")
-	public void he_she_for_and_for_invalid_credentials(String str1,String str2,String str3)throws Exception {
+	public void he_she_for_and_for_invalid_credentials(String str1, String str2, String str3) throws Exception {
 
 		try {
 			PerformAction.SLEEP_TIME = 1000;
-
+			log.info("It's verfify the password/email adress credentials");
 		} catch (Exception e) {
 			e.printStackTrace();
+		}
+
+	}
+
+	@And("^he/she tap on hamburger icon\\.$")
+	public void he_she_tap_on_hamburger_icon() {
+		try {
+			webelement = driver.findElement(By.id("mobile-menu-opener"));
+			webelement.click();
+			log.info("It's click on hamburger icon");
+			Thread.sleep(4000);
+		} catch (Exception e) {
+
 		}
 
 	}
