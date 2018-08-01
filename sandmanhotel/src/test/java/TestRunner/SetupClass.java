@@ -120,22 +120,22 @@ public class SetupClass {
 			baseURL = property.getProperty("base_url");
 			System.out.println("Bname=====" + baseURL);	
 			//for android devices
-			DesiredCapabilities caps = DesiredCapabilities.iphone();
-			caps.setCapability("appiumVersion", "1.6.5");
-			caps.setCapability("deviceName","iPhone 6 Plus Simulator");
-			caps.setCapability("deviceOrientation", "portrait");
-			caps.setCapability("browserName", "Safari");
-			caps.setCapability("platformVersion", "9.3");
-			caps.setCapability("platformName","iOS");
-			caps.setCapability("name", "browser automation test on mobile");
-			driver = new RemoteWebDriver(new URL(sauceURL), caps);
+// 			DesiredCapabilities caps = DesiredCapabilities.iphone();
+// 			caps.setCapability("appiumVersion", "1.6.5");
+// 			caps.setCapability("deviceName","iPhone 6 Plus Simulator");
+// 			caps.setCapability("deviceOrientation", "portrait");
+// 			caps.setCapability("browserName", "Safari");
+// 			caps.setCapability("platformVersion", "9.3");
+// 			caps.setCapability("platformName","iOS");
+// 			caps.setCapability("name", "browser automation test on mobile");
+// 			driver = new RemoteWebDriver(new URL(sauceURL), caps);
 
 			// for deskstop
-//			DesiredCapabilities caps = DesiredCapabilities.chrome();
-//			caps.setCapability("platform", "Windows 10");
-//			caps.setCapability("version", "64");
-//		caps.setCapability("name", "My Desktop automation test");
-//			driver = new RemoteWebDriver(new URL(sauceURL), caps);
+			DesiredCapabilities caps = DesiredCapabilities.chrome();
+			caps.setCapability("platform", "Windows 10");
+			caps.setCapability("version", "64");
+		caps.setCapability("name", "My Desktop automation test");
+			driver = new RemoteWebDriver(new URL(sauceURL), caps);
 			
 			// if (browser.equalsIgnoreCase("jenkins"))
 		} else if ((onjenkins.equals("yes")) && oncloud.equals("no")) {
