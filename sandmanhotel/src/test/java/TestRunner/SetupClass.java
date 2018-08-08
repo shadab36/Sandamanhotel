@@ -141,6 +141,9 @@ public class SetupClass {
 		} else if ((onjenkins.equals("yes")) && oncloud.equals("no")) {
 			baseURL = property.getProperty("base_url");
 			System.out.println("Bname=====" + baseURL);
+			browserName = System.getenv("SELENIUM_BROWSER");
+			platform = System.getenv("SELENIUM_PLATFORM");
+			platformVersion = System.getenv("SELENIUM_VERSION");
 			DesiredCapabilities caps = DesiredCapabilities.chrome();
 			caps.setCapability("platform", "Windows 10");
 			caps.setCapability("version", "64");
