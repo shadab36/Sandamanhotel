@@ -197,6 +197,7 @@ public class SetupClass {
 	public static void afterClass() throws InterruptedException{
 		
 			driver.close();
+			driver.quit();
 			Thread.sleep(2000);
 		
 	}
