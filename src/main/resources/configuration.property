@@ -1,5 +1,5 @@
 base_url=http://integration-www-sandman.mobiusbookingengine.com
-sauce_url=http://AyushDam:f5cae068-fd7e-46b2-92c5-3b639ef8a721@ondemand.saucelabs.com:80/wd/hub
+sauce_url=http://uday12:572b9e03-2164-4580-a144-bf87cf806c6b@ondemand.saucelabs.com:80/wd/hub
 local_Fifefox_browser=CommonData.Firefox_Name, CommonData.Firefox_Path
 local_chrome_browser=CommonData.Chrome_Name, CommonData.Chrome_Path
 local_IE11_browser=CommonData.IE_Name,CommonData.IE_Path
