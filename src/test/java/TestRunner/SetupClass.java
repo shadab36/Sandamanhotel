@@ -168,7 +168,8 @@ public class SetupClass {
 			
 			System.out.println("**********************hello****************");
 			DesiredCapabilities caps = new DesiredCapabilities();
-			caps.setCapability("browser", browserName);
+			//caps.setCapability("browser", browserName);
+			caps.setBrowserName(browserName);
 			caps.setCapability("platform", platform);
 			caps.setCapability("version", browserVersion);
 			caps.setCapability("name", "My Desktop automation test-3");
