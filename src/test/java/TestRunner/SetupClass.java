@@ -30,6 +30,7 @@ public class SetupClass {
 	public static String browserName;
 	public static String platformVersion;
 	public static String platform;
+	public static String browserVersion;
 	public static String platformName;
 	public static String deviceName;
 	public static String deviceOrientation;
@@ -159,14 +160,18 @@ public class SetupClass {
 
 	else  {
 			platform = System.getenv("SELENIUM_PLATFORM");
-			System.out.println("Platform from sauce labs == "+platform);
 			browserName = System.getenv("SELENIUM_BROWSER");
+			browserVersion = System.getenv("SELENIUM_VERSION");
+			System.out.println("Platform from sauce labs == "+platform);
+			System.out.println("browser name from sauce labs == "+browserName);
+			System.out.println("browser Version from sauce labs == "+browserVersion);
 			
 			System.out.println("**********************hello****************");
-			DesiredCapabilities caps = DesiredCapabilities.chrome();
+			DesiredCapabilities caps = new DesiredCapabilities();
+			caps.setCapability("browser", browserName);
 			caps.setCapability("platform", platform);
-			caps.setCapability("version", "beta");
-			caps.setCapability("name", "My Desktop automation test-2");
+			caps.setCapability("version", browserVersion);
+			caps.setCapability("name", "My Desktop automation test-3");
 			driver = new RemoteWebDriver(new URL(sauceURL), caps);
 			
 //			System.out.println("test");
