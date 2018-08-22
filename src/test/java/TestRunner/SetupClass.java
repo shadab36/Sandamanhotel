@@ -113,9 +113,10 @@ public class SetupClass {
 			Thread.sleep(2000);
 
 			// if (browser.equalsIgnoreCase("saucelabs"))
-		} else if ((oncloud.equals("yes")) && onjenkins.equals("no")) {
-			baseURL = property.getProperty("base_url");
-			System.out.println("Bname=====" + baseURL);
+	}
+			//else if ((oncloud.equals("yes")) && onjenkins.equals("no")) {
+//			baseURL = property.getProperty("base_url");
+//			System.out.println("Bname=====" + baseURL);
 			// for  ios devices
 //			 DesiredCapabilities caps = DesiredCapabilities.iphone();
 //			 caps.setCapability("appiumVersion", "1.6.5");
@@ -141,27 +142,44 @@ public class SetupClass {
 
 			// for jenkins soucelabs 
 			
-			DesiredCapabilities capability = new DesiredCapabilities();
-			capability.setCapability("platform", platform);
-			capability.setBrowserName(browserName);
-			capability.setCapability("version", platformVersion);
-			capability.setCapability("name", "AutoBill automation tests");
-			driver = new RemoteWebDriver(new URL(sauceURL), capability);
-			log.info("Driver created ....");
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//			DesiredCapabilities capability = new DesiredCapabilities();
+//			capability.setCapability("platform", platform);
+//			capability.setBrowserName(browserName);
+//			capability.setCapability("version", platformVersion);
+//			capability.setCapability("name", "AutoBill automation tests");
+//			driver = new RemoteWebDriver(new URL(sauceURL), capability);
+//			log.info("Driver created ....");
+//			driver.manage().window().maximize();
+//			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		
 			
 			
 			
 		
 
-		} else {
-			System.out.println("test");
-			browserName = System.getenv("SELENIUM_BROWSER");
-			platform = System.getenv("SELENIUM_PLATFORM");
-			platformVersion = System.getenv("SELENIUM_VERSION");
-			System.out.println("after run");
+	else  {
+			
+			System.out.println("**********************hello****************");
+			DesiredCapabilities caps = DesiredCapabilities.chrome();
+			caps.setCapability("platform", "Windows 10");
+			caps.setCapability("version", "beta");
+			caps.setCapability("name", "My Desktop automation test-1");
+			driver = new RemoteWebDriver(new URL(sauceURL), caps);
+			
+//			System.out.println("test");
+//			browserName = System.getenv("SELENIUM_BROWSER");
+//			platform = System.getenv("SELENIUM_PLATFORM");
+//			platformVersion = System.getenv("SELENIUM_VERSION");
+//			DesiredCapabilities capability = new DesiredCapabilities();
+//			capability.setCapability("platform", platform);
+//			
+//			capability.setCapability("version", platformVersion);
+//			capability.setCapability("name", "AutoBill automation tests");
+//			driver = new RemoteWebDriver(new URL(sauceURL), capability);
+//			log.info("Driver created ....");
+//			driver.manage().window().maximize();
+//			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+//			System.out.println("after run");
 		}
 
 	}
