@@ -158,12 +158,15 @@ public class SetupClass {
 		
 
 	else  {
+			platform = System.getenv("SELENIUM_PLATFORM");
+			System.out.println("Platform from sauce labs == "+platform);
+			browserName = System.getenv("SELENIUM_BROWSER");
 			
 			System.out.println("**********************hello****************");
 			DesiredCapabilities caps = DesiredCapabilities.chrome();
-			caps.setCapability("platform", "Windows 10");
+			caps.setCapability("platform", platform);
 			caps.setCapability("version", "beta");
-			caps.setCapability("name", "My Desktop automation test-1");
+			caps.setCapability("name", "My Desktop automation test-2");
 			driver = new RemoteWebDriver(new URL(sauceURL), caps);
 			
 //			System.out.println("test");
