@@ -52,7 +52,7 @@ public class SetupClass {
 		PropertyConfigurator.configure("log4j.properties");
 		log = Logger.getLogger("devpinoyLogger");
 		property.load(new FileReader(
-				"C:\\Users\\AL Moin Webtech\\App360v43Test\\App360v43\\src\\main\\resources\\config.properties"));
+				"C:\\Users\\AL Moin Webtech\\new test clone\\SandamanhotelNew\\src\\main\\resources\\configuration.property"));
 		baseURL = property.getProperty("base_url");
 		sauceURL = property.getProperty("sauce_url");
 		deviceName = property.getProperty("device_name");
