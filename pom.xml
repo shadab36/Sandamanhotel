@@ -74,6 +74,9 @@
 				<configuration>
 					<forkCount>20</forkCount>
 					<reuseForks>test</reuseForks>
+					 <includes>
+             <include>**/*IT.class</include>
+         </includes>
 				</configuration>
 			</plugin>
 		</plugins>
