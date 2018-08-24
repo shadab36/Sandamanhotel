@@ -74,7 +74,7 @@ public class SetupClass {
 		// if (browser.equalsIgnoreCase("chrome"))
 
 		if ((local_chrome.equals("yes")) && oncloud.equals("no")) {
-			System.out.println("hello mike");
+
 			/*** To run desktop project on local */
 			local_chromebrowser = System.setProperty(CommonData.Chrome_Name, CommonData.Chrome_Path);
 			driver = new ChromeDriver();
@@ -84,7 +84,7 @@ public class SetupClass {
 			// if (browser.equalsIgnoreCase("firefox"))
 		} else if ((localtestFF.equals("yes")) && oncloud.equals("no")) {
 			/*** To run desktop project on local */
-			System.out.println("hello harry");
+			
 			localFF = System.setProperty(CommonData.Firefox_Name, CommonData.Firefox_Path);
 			driver = new FirefoxDriver();
 			System.out.println("Bname=====" + baseURL);
@@ -158,10 +158,10 @@ public class SetupClass {
 			
 			
 			
-		
+
 
 	else  {
-		System.out.println("hello jack");
+		
 			platform = System.getenv("SELENIUM_PLATFORM");
 			browserName = System.getenv("SELENIUM_BROWSER");
 			browserVersion = System.getenv("SELENIUM_VERSION");
@@ -175,7 +175,7 @@ public class SetupClass {
 			caps.setBrowserName(browserName);
 			caps.setCapability("platform", platform);
 			caps.setCapability("version", browserVersion);
-			caps.setCapability("name", "My Desktop automation test-3");
+			caps.setCapability("name", "My Desktop automation test-4");
 			driver = new RemoteWebDriver(new URL(sauceURL), caps);
 			
 
