@@ -74,6 +74,7 @@ public class SetupClass {
 		// if (browser.equalsIgnoreCase("chrome"))
 
 		if ((local_chrome.equals("yes")) && oncloud.equals("no")) {
+			System.out.println("hello mike");
 			/*** To run desktop project on local */
 			local_chromebrowser = System.setProperty(CommonData.Chrome_Name, CommonData.Chrome_Path);
 			driver = new ChromeDriver();
@@ -83,6 +84,7 @@ public class SetupClass {
 			// if (browser.equalsIgnoreCase("firefox"))
 		} else if ((localtestFF.equals("yes")) && oncloud.equals("no")) {
 			/*** To run desktop project on local */
+			System.out.println("hello harry");
 			localFF = System.setProperty(CommonData.Firefox_Name, CommonData.Firefox_Path);
 			driver = new FirefoxDriver();
 			System.out.println("Bname=====" + baseURL);
@@ -159,6 +161,7 @@ public class SetupClass {
 		
 
 	else  {
+		System.out.println("hello jack");
 			platform = System.getenv("SELENIUM_PLATFORM");
 			browserName = System.getenv("SELENIUM_BROWSER");
 			browserVersion = System.getenv("SELENIUM_VERSION");
@@ -175,20 +178,7 @@ public class SetupClass {
 			caps.setCapability("name", "My Desktop automation test-3");
 			driver = new RemoteWebDriver(new URL(sauceURL), caps);
 			
-//			System.out.println("test");
-//			browserName = System.getenv("SELENIUM_BROWSER");
-//			platform = System.getenv("SELENIUM_PLATFORM");
-//			platformVersion = System.getenv("SELENIUM_VERSION");
-//			DesiredCapabilities capability = new DesiredCapabilities();
-//			capability.setCapability("platform", platform);
-//			
-//			capability.setCapability("version", platformVersion);
-//			capability.setCapability("name", "AutoBill automation tests");
-//			driver = new RemoteWebDriver(new URL(sauceURL), capability);
-//			log.info("Driver created ....");
-//			driver.manage().window().maximize();
-//			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-//			System.out.println("after run");
+
 		}
 
 	}
