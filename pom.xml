@@ -73,9 +73,9 @@
 				<version>2.19</version>
 				<configuration>
 					<forkCount>5</forkCount>
-					<reuseForks>true</reuseForks>
+					<reuseForks>test</reuseForks>
 					<includes>
-						<include>**/TestRun.java</include>
+						<include>**/SetupClass.java</include>
 					</includes>
 				</configuration>
 			</plugin>
