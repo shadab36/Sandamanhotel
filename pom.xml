@@ -75,7 +75,7 @@
 					<forkCount>5</forkCount>
 					<reuseForks>true</reuseForks>
 					<includes>
-						<include>**/Parallel*IT.class</include>
+						<include>**/*Run.java</include>
 					</includes>
 				</configuration>
 			</plugin>
