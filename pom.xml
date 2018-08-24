@@ -74,9 +74,6 @@
 				<configuration>
 					<forkCount>20</forkCount>
 					<reuseForks>test</reuseForks>
-					<includes>
-						<include>**/*Run.java</include>
-					</includes>
 				</configuration>
 			</plugin>
 		</plugins>
