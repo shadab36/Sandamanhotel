@@ -75,6 +75,7 @@ public class SetupClass {
 
 		if ((local_chrome.equals("yes")) && oncloud.equals("no")) {
 
+
 			/*** To run desktop project on local */
 			local_chromebrowser = System.setProperty(CommonData.Chrome_Name, CommonData.Chrome_Path);
 			driver = new ChromeDriver();
@@ -82,7 +83,7 @@ public class SetupClass {
 
 
 			// if (browser.equalsIgnoreCase("firefox"))
-		} else if ((localtestFF.equals("yes")) && oncloud.equals("no")) {
+		}	else if ((localtestFF.equals("yes")) && oncloud.equals("no")) {
 			/*** To run desktop project on local */
 			
 			localFF = System.setProperty(CommonData.Firefox_Name, CommonData.Firefox_Path);
@@ -90,10 +91,10 @@ public class SetupClass {
 			System.out.println("Bname=====" + baseURL);
 			System.out.println(localFF);
 			System.out.println(baseURL);
-
+		}
 			// if (browser.equalsIgnoreCase("IE11"))
 
-		} else if ((local_IE11.equals("yes")) && oncloud.equals("no")) {
+		 else if ((local_IE11.equals("yes")) && oncloud.equals("no")) {
 			/*** To run desktop project on local */
 			local_IE11browser = System.setProperty(CommonData.IE_Name, CommonData.IE_Path);
 			driver = new InternetExplorerDriver();
@@ -117,50 +118,8 @@ public class SetupClass {
 
 			// if (browser.equalsIgnoreCase("saucelabs"))
 	}
-			//else if ((oncloud.equals("yes")) && onjenkins.equals("no")) {
-//			baseURL = property.getProperty("base_url");
-//			System.out.println("Bname=====" + baseURL);
-			// for  ios devices
-//			 DesiredCapabilities caps = DesiredCapabilities.iphone();
-//			 caps.setCapability("appiumVersion", "1.6.5");
-//			 caps.setCapability("deviceName","iPhone 6 Plus Simulator");
-//			 caps.setCapability("deviceOrientation", "portrait");
-//			 caps.setCapability("browserName", "Safari");
-//			 caps.setCapability("platformVersion", "9.3");
-//			 caps.setCapability("platformName","iOS");
-//			 caps.setCapability("name", "browser automation test on iOS mobile");
-//			// driver = new RemoteWebDriver(new URL(sauceURL), caps);
-
-			// for android devices
-
-//			 DesiredCapabilities caps = DesiredCapabilities.android();
-//			 caps.setCapability("appiumVersion", "1.6.5");
-//			 caps.setCapability("deviceName","Samsung Galaxy S7 Edge WQHD GoogleAPI Emulator");
-//			 caps.setCapability("deviceOrientation", "portrait");
-//			 caps.setCapability("browserName", "Chrome");
-//			 caps.setCapability("platformVersion", "7.1");
-//			 caps.setCapability("platformName","Android");
-//			caps.setCapability("name", "browser automation test on android mobile");
 			
-
-			// for jenkins soucelabs 
-			
-//			DesiredCapabilities capability = new DesiredCapabilities();
-//			capability.setCapability("platform", platform);
-//			capability.setBrowserName(browserName);
-//			capability.setCapability("version", platformVersion);
-//			capability.setCapability("name", "AutoBill automation tests");
-//			driver = new RemoteWebDriver(new URL(sauceURL), capability);
-//			log.info("Driver created ....");
-//			driver.manage().window().maximize();
-//			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-		
-			
-			
-			
-
-
-	else  {
+else  {
 		
 			platform = System.getenv("SELENIUM_PLATFORM");
 			browserName = System.getenv("SELENIUM_BROWSER");
