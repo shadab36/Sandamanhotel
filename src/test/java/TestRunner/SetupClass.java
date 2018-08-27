@@ -70,7 +70,7 @@ public class SetupClass {
 		localFF = property.getProperty("local_Fifefox_browser");
 		local_IE11browser = property.getProperty("local_IE11_browser");
 		local_IE11 = property.getProperty("local_IE11");
-
+		DesiredCapabilities caps = new DesiredCapabilities();
 		// if (browser.equalsIgnoreCase("chrome"))
 
 		if ((local_chrome.equals("yes")) && oncloud.equals("no")) {
@@ -129,12 +129,26 @@ else  {
 			System.out.println("browser Version from sauce labs == "+browserVersion);
 			
 			System.out.println("**********************hello****************");
-			DesiredCapabilities caps = new DesiredCapabilities();
+			switch (platform .toLowerCase()) {
+			case "chrome-win-saucelabs":
+
 			//caps.setCapability("browser", browserName);
 			caps.setBrowserName(browserName);
 			caps.setCapability("platform", platform);
 			caps.setCapability("version", browserVersion);
 			caps.setCapability("name", "My Desktop automation test-4");
+			break;
+			case "chrome-mac-saucelabs":
+			caps.setBrowserName(browserName);
+			caps.setCapability("platform", platform);
+			caps.setCapability("version", browserVersion);
+			caps.setCapability("name", "My Desktop automation test-4");
+			break;
+			default:
+				System.out.println("your passed platform is incorrect");
+				break;
+
+			}
 			driver = new RemoteWebDriver(new URL(sauceURL), caps);
 			
 
