@@ -1,8 +1,6 @@
 package TestRunner.loginSteps;
 
 import java.util.concurrent.TimeUnit;
-
-import org.apache.log4j.Logger;
 import org.junit.Assert;
 
 import org.openqa.selenium.By;
@@ -29,7 +27,6 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 			
 			driver.get(baseURL);
-			Thread.sleep(5000);
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			log.info("It's opening the home page");
@@ -142,9 +139,9 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she minimize the booking banner\\.$")
 	public void he_she_minimize_the_booking_banner() {
 		try {
-			driver.findElement(LoginObject.min_banner).click();
+			driver.findElement( By
+					.cssSelector(".floating-bar--tab-booking.main-mobile-toggle.is-active.mobile-is-open>a")).click();
 			Thread.sleep(2000);
-			log.info("It's minimize the banner");
 		} catch (Exception e) {
 		}
 	}

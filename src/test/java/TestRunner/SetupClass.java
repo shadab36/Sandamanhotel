@@ -144,10 +144,9 @@ else  {
 
 	@AfterClass
 	public static void afterClass() throws InterruptedException{
-		
 			driver.close();
 			driver.quit();
-			Thread.sleep(2000);
+			 Thread.sleep(2000);
 		
 	}
 }

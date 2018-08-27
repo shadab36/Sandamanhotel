@@ -70,9 +70,9 @@ Feature: signup Test On Web Application
     And he/she logout the application.
 
   #login the application
-  @Loginttest
+  @Loginttest 
   Scenario Outline: login the application.
-    Given navigates to integration-www-sandman.mobiusbookingengine.com
+   Given navigates to integration-www-sandman.mobiusbookingengine.com  
     Then he/she click on login CTA.
     Then he/she provides the userEmail as "<UserEmail>".
     Then he/she provides the password "<Password>".
