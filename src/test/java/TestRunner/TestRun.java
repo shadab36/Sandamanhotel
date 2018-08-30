@@ -9,9 +9,9 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(features = {".","."}, format ={
-		"pretty", "html:target1"},
+		"pretty", "html:target2"},
 glue={"TestRunner.loginSteps"},
-tags= {"@Login_Test_onmobile,@Logout_Test_onmobile"})
+tags= {"@Loginttest"})
 public class TestRun {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
