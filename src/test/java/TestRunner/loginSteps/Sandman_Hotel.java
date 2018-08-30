@@ -484,7 +484,7 @@ public class Sandman_Hotel extends SetupClass {
 	
 	
 	}
-	@Then("^he/she click on login cta\\.$")
+	@Then("^click on login cta\\.$")
 	public void login_app() throws InterruptedException {
 	
 		webelement = driver.findElement(LoginObject.Login_button);
