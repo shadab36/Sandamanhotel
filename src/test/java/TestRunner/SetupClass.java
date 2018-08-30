@@ -124,6 +124,25 @@ public class SetupClass {
 		System.out.println("Bname=====" + baseURL);
 		System.out.println("run the script on sauce labs");
 		
+		
+		//on browser
+		System.out.println("test");
+		browserName = System.getenv("SELENIUM_BROWSER");
+		platform = System.getenv("SELENIUM_PLATFORM");
+		platformVersion = System.getenv("SELENIUM_VERSION");
+		
+		DesiredCapabilities capability = new DesiredCapabilities();
+		capability.setCapability("platform", platform);
+		capability.setBrowserName(browserName);
+		capability.setCapability("version", platformVersion);
+		capability.setCapability("name",  "Automation tests");
+		
+		System.out.println("platform "+ platform);
+		System.out.println("BrowerName"+ browserName);
+		System.out.println("platform vesion"+ platformVersion);
+		
+		driver = new RemoteWebDriver(new URL(sauceURL), capability);
+		
 //		// for  ios devices
 //		 DesiredCapabilities caps = DesiredCapabilities.iphone();
 //		 caps.setCapability("appiumVersion", "1.6.5");
@@ -136,33 +155,29 @@ public class SetupClass {
 //		 driver = new RemoteWebDriver(new URL(sauceURL), caps);
 
 		// for android devices
-
-		 DesiredCapabilities caps = DesiredCapabilities.android();
-		 caps.setCapability("appiumVersion", "1.6.5");
-		 caps.setCapability("deviceName","Samsung Galaxy S7 Edge WQHD GoogleAPI Emulator");
-		 caps.setCapability("deviceOrientation", "portrait");
-		 caps.setCapability("browserName", "Chrome");
-		 caps.setCapability("platformVersion", "7.1");
-		 caps.setCapability("platformName","Android");
-		caps.setCapability("name", "browser automation test on android mobile");
-		driver = new RemoteWebDriver(new URL(sauceURL), caps);
+//
+//		 DesiredCapabilities caps = DesiredCapabilities.android();
+//		 caps.setCapability("appiumVersion", "1.6.5");
+//		 caps.setCapability("deviceName","Samsung Galaxy S7 Edge WQHD GoogleAPI Emulator");
+//		 caps.setCapability("deviceOrientation", "portrait");
+//		 caps.setCapability("browserName", "Chrome");
+//		 caps.setCapability("platformVersion", "7.1");
+//		 caps.setCapability("platformName","Android");
+//		caps.setCapability("name", "browser automation test on android mobile");
+//		driver = new RemoteWebDriver(new URL(sauceURL), caps);
 
 		// for deskstop
-//		DesiredCapabilities caps = DesiredCapabilities.chrome();
-//		caps.setCapability("platform", "Windows 10");
-//		caps.setCapability("version", "64");
-//		caps.setCapability("name", "My Desktop automation test");
+		DesiredCapabilities caps = DesiredCapabilities.chrome();
+		caps.setCapability("platform", "Windows 10");
+		caps.setCapability("version", "64");
+		caps.setCapability("name", "My Desktop automation test");
 		
 		// here is the sauce driver 
-		//driver = new RemoteWebDriver(new URL(sauceURL), caps);
+	//	driver = new RemoteWebDriver(new URL(sauceURL), caps);
 	}
 			
 else  {
- 	
-	System.out.println("test");
-	browserName = System.getenv("SELENIUM_BROWSER");
-	platform = System.getenv("SELENIUM_PLATFORM");
-	platformVersion = System.getenv("SELENIUM_VERSION");
+ 
 	System.out.println("after run");
 			
 
