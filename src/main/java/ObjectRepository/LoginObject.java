@@ -2,12 +2,6 @@ package ObjectRepository;
 
 import org.openqa.selenium.By;
 
-/**
- * 
- * @LoginObjects Here I have created all objects which we will use to run Login
- *               test cases.
- *
- */
 public class LoginObject {
 	// Register in Object
 	public static By login_link = By.cssSelector(".ks-btn");

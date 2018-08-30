@@ -27,8 +27,9 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 			
 			driver.get(baseURL);
-			driver.manage().window().maximize();
-			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			Thread.sleep(2000);
+//			driver.manage().window().maximize();
+//			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			log.info("It's opening the home page");
 		} catch (Exception e) {
 
@@ -39,13 +40,14 @@ public class Sandman_Hotel extends SetupClass {
 	public void he_she_click_on_login_CTA() {
 		try {
 			webelement = driver.findElement(LoginObject.login_link);
-			Assert.assertEquals(true, webelement.isDisplayed());
-			String text = webelement.getText();
-			System.out.println(text);
-			action.implictywait(driver);
+			//Assert.assertEquals(true, webelement.isDisplayed());
+			//String text = webelement.getText();
+			//System.out.println(text);
+			//action.implictywait(driver);
 			webelement.click();
 			action.implictywait(driver);
-			log.info("It's clciking on login CTA");
+			Thread.sleep(2000);
+			//log.info("It's clciking on login CTA");
 		} catch (Exception e) {
 		}
 	}
@@ -70,17 +72,14 @@ public class Sandman_Hotel extends SetupClass {
 	}
 
 	@Then("^he/she provides the userEmail as \"([^\"]*)\"\\.$")
-	public void he_she_provides_the_userEmail_as(String email) {
-
+	public void he_she_provides_the_userEmail_as(String email) throws InterruptedException {
 		webelement = driver.findElement(LoginObject.user_email);
-		Assert.assertEquals(true, webelement.isDisplayed());
-		String text = webelement.getText();
-		System.out.println(text);
-		action.implictywait(driver);
+		Thread.sleep(1000);
 		act.click(webelement).build().perform();
 		action.implictywait(driver);
 		act.sendKeys(email).build().perform();
 		action.implictywait(driver);
+		Thread.sleep(1000);
 		log.info("It's entering the user email Address");
 
 	}
@@ -429,7 +428,9 @@ public class Sandman_Hotel extends SetupClass {
 	public void he_she_login_the_app(String pass) {
 		try {
 			webelement = driver.findElement(LoginObject.user_password);
-			webelement.sendKeys(pass);
+			act.click(webelement).build().perform();
+			action.implictywait(driver);
+			act.sendKeys(pass).build().perform();
 			action.implictywait(driver);
 			log.info("the user provide the password");
 		} catch (Exception e) {
@@ -443,17 +444,10 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 
 			webelement = driver.findElement(LoginObject.Login_button);
-			Thread.sleep(1000);
-			Assert.assertEquals(true, webelement.isDisplayed());
-			String text = webelement.getText();
-			System.out.println(text);
 			action.implictywait(driver);
-			js.executeScript("arguments[0].click();", webelement);
-			action.implictywait(driver);
-			WebDriverWait wait = new WebDriverWait(driver, 15);
-			wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".init-button")));
-			log.info("It's click on login  the app");
-
+			webelement.click();
+			Thread.sleep(3000);
+			log.info("It's click on login  the CTA");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -476,11 +470,25 @@ public class Sandman_Hotel extends SetupClass {
 		try {
 			webelement = driver.findElement(By.id("mobile-menu-opener"));
 			webelement.click();
+			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			log.info("It's click on hamburger icon");
-			Thread.sleep(4000);
 		} catch (Exception e) {
 
 		}
-
 	}
+@And("^click on the user profile\\.$")
+public void user_logout_profile() throws InterruptedException {
+	WebDriverWait wait = new WebDriverWait(driver, 30);
+	wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//*[@id=\"main-header-inner\"]/nav/div/ul/li[2]/div/a/div/div/div")));
+	//webelement=	driver.findElement(By.xpath("//*[@class='profile'])[1]"));
+	webelement=	driver.findElement(By.xpath("//*[@id=\"main-header-inner\"]/nav/div/ul/li[2]/div/a/div/div/div"));	
+	webelement.click();
+	Thread.sleep(1000);
+	log.info("It's click on user profile");
+}
+@Then("^logout the application\\.$")
+public void logout_the_application() throws InterruptedException {
+	driver.findElement(By.xpath("//*[@id=\"main-header-inner\"]/nav/div/ul/li[2]/div/ul/li[3]/a")).click();
+	Thread.sleep(1000);
+}
 }

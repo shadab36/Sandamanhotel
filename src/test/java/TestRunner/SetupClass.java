@@ -18,6 +18,7 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 
 //import GenericAction.NewuserHelper;
 import GenericAction.ReusableActions;
+import io.appium.java_client.android.AndroidDriver;
 import webApp.CommonData;
 
 public class SetupClass {
@@ -111,32 +112,58 @@ public class SetupClass {
 			cab.setCapability("platformName", "Android");
 			cab.setCapability("platformVersion", "7.1.1");
 			cab.setBrowserName("chrome");
-			// provided appium serverid
-			// Thread.sleep(2000);
+			
+		//	cab.s
 			// provided appium server id and create object to launch app in ARD
+			driver = new AndroidDriver(new URL("http://0.0.0.0:4723/wd/hub"), cab);
 			Thread.sleep(2000);
+	
+		
+	} else if ((oncloud.equals("yes")) && onjenkins.equals("no")) {
+		baseURL = property.getProperty("base_url");
+		System.out.println("Bname=====" + baseURL);
+		System.out.println("run the script on sauce labs");
+		
+//		// for  ios devices
+//		 DesiredCapabilities caps = DesiredCapabilities.iphone();
+//		 caps.setCapability("appiumVersion", "1.6.5");
+//		 caps.setCapability("deviceName","iPhone 6 Plus Simulator");
+//		 caps.setCapability("deviceOrientation", "portrait");
+//		 caps.setCapability("browserName", "Safari");
+//		 caps.setCapability("platformVersion", "9.3");
+//		 caps.setCapability("platformName","iOS");
+//		 caps.setCapability("name", "browser automation test on iOS mobile");
+//		 driver = new RemoteWebDriver(new URL(sauceURL), caps);
 
-			// if (browser.equalsIgnoreCase("saucelabs"))
+		// for android devices
+
+		 DesiredCapabilities caps = DesiredCapabilities.android();
+		 caps.setCapability("appiumVersion", "1.6.5");
+		 caps.setCapability("deviceName","Samsung Galaxy S7 Edge WQHD GoogleAPI Emulator");
+		 caps.setCapability("deviceOrientation", "portrait");
+		 caps.setCapability("browserName", "Chrome");
+		 caps.setCapability("platformVersion", "7.1");
+		 caps.setCapability("platformName","Android");
+		caps.setCapability("name", "browser automation test on android mobile");
+		driver = new RemoteWebDriver(new URL(sauceURL), caps);
+
+		// for deskstop
+//		DesiredCapabilities caps = DesiredCapabilities.chrome();
+//		caps.setCapability("platform", "Windows 10");
+//		caps.setCapability("version", "64");
+//		caps.setCapability("name", "My Desktop automation test");
+		
+		// here is the sauce driver 
+		//driver = new RemoteWebDriver(new URL(sauceURL), caps);
 	}
 			
 else  {
-		
-			platform = System.getenv("SELENIUM_PLATFORM");
-			browserName = System.getenv("SELENIUM_BROWSER");
-			browserVersion = System.getenv("SELENIUM_VERSION");
-			System.out.println("Platform from sauce labs == "+platform);
-			System.out.println("browser name from sauce labs == "+browserName);
-			System.out.println("browser Version from sauce labs == "+browserVersion);
-			
-			System.out.println("**********************hello****************");
-			DesiredCapabilities caps = new DesiredCapabilities();
-			//caps.setCapability("browser", browserName);
-			caps.setBrowserName(browserName);
-			caps.setCapability("platform", platform);
-			caps.setCapability("version", browserVersion);
-			caps.setCapability("name", "My Desktop automation test-4");
-			
-			driver = new RemoteWebDriver(new URL(sauceURL), caps);
+ 	
+	System.out.println("test");
+	browserName = System.getenv("SELENIUM_BROWSER");
+	platform = System.getenv("SELENIUM_PLATFORM");
+	platformVersion = System.getenv("SELENIUM_VERSION");
+	System.out.println("after run");
 			
 
 		}
@@ -144,7 +171,7 @@ else  {
 	}
 
 	@AfterClass
-	public static void afterClass() throws InterruptedException{
+	public static void after_Class() throws InterruptedException{
 			driver.close();
 			driver.quit();
 			 Thread.sleep(2000);
