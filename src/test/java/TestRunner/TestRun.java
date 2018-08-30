@@ -17,7 +17,7 @@ public class TestRun {
 	@BeforeClass
 	public static void beforeClass() throws Exception {
 		
-			SetupClass.before_Class();
+		SetupClass.before_Class();
 	}	
 	@AfterClass
 	public static void afterClass() throws Exception {

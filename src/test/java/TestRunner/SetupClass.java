@@ -138,6 +138,9 @@ public class SetupClass {
 		capability.setBrowserName(browserName);
 		capability.setCapability("version", platformVersion);
 		capability.setCapability("name",  "Automation tests");
+		
+		
+		
 		driver = new RemoteWebDriver(new URL(sauceURL), capability);
 		
 //		// for  ios devices

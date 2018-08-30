@@ -452,7 +452,7 @@ public class Sandman_Hotel extends SetupClass {
 			System.out.println(text);
 			action.implictywait(driver);
 			js.executeScript("arguments[0].click();", webelement);
-	        Thread.sleep(3000);
+	        Thread.sleep(4000);
 			log.info("It's click on login  the CTA");
 		} catch (Exception e) {
 			e.printStackTrace();
