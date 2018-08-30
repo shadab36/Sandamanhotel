@@ -1,5 +1,6 @@
 package TestRunner;
 
+import org.junit.AfterClass;
 import org.junit.BeforeClass;
 import org.junit.runner.RunWith;
 
@@ -18,5 +19,9 @@ public class TestRun {
 		
 			SetupClass.before_Class();
 	}	
-	
+	@AfterClass
+	public static void afterClass() throws Exception {
+		
+			SetupClass.after_Class();
+}
 }
