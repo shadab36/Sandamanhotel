@@ -130,16 +130,14 @@ public class SetupClass {
 		browserName = System.getenv("SELENIUM_BROWSER");
 		platform = System.getenv("SELENIUM_PLATFORM");
 		platformVersion = System.getenv("SELENIUM_VERSION");
+		System.out.println("platform :"+ platform);
+		System.out.println("BrowerName: "+  browserName);
+		System.out.println("platform vesion: "+  platformVersion);
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("platform", platform);
 		capability.setBrowserName(browserName);
 		capability.setCapability("version", platformVersion);
 		capability.setCapability("name",  "Automation tests");
-		
-		System.out.println("platform "+ platform);
-		System.out.println("BrowerName"+  browserName);
-		System.out.println("platform vesion"+  platformVersion);
-		
 		driver = new RemoteWebDriver(new URL(sauceURL), capability);
 		
 //		// for  ios devices
@@ -177,7 +175,7 @@ public class SetupClass {
 			
 else  {
  
-	System.out.println("after run");
+	System.out.println("platform not found");
 			
 
 		}
