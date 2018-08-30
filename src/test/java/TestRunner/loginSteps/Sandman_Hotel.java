@@ -28,8 +28,8 @@ public class Sandman_Hotel extends SetupClass {
 			
 			driver.get(baseURL);
 			Thread.sleep(2000);
-//			driver.manage().window().maximize();
-//			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
+			driver.manage().window().maximize();
+			driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 			log.info("It's opening the home page");
 		} catch (Exception e) {
 
@@ -442,17 +442,23 @@ public class Sandman_Hotel extends SetupClass {
 	@Then("^he/she click on login cta\\.$")
 	public void he_she_click_on_login() {
 		try {
-
+			
+			
+			
 			webelement = driver.findElement(LoginObject.Login_button);
 			action.implictywait(driver);
-			webelement.click();
-			Thread.sleep(3000);
+			Assert.assertEquals(true, webelement.isDisplayed());
+			String text = webelement.getText();
+			System.out.println(text);
+			action.implictywait(driver);
+			js.executeScript("arguments[0].click();", webelement);
+			action.implictywait(driver);
+	        Thread.sleep(3000);
 			log.info("It's click on login  the CTA");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
-
 	@And("^he/she \"([^\"]*)\" for \"([^\"]*)\" and \"([^\"]*)\" for invalid credentials\\.$")
 	public void he_she_for_and_for_invalid_credentials(String str1, String str2, String str3) throws Exception {
 
@@ -475,7 +481,17 @@ public class Sandman_Hotel extends SetupClass {
 		} catch (Exception e) {
 
 		}
+	
+	
 	}
+	@Then("^he/she click on login cta\\.$")
+	public void login_app() throws InterruptedException {
+	
+		webelement = driver.findElement(LoginObject.Login_button);
+		webelement.click();
+		Thread.sleep(1000);	
+		}
+	
 @And("^click on the user profile\\.$")
 public void user_logout_profile() throws InterruptedException {
 	WebDriverWait wait = new WebDriverWait(driver, 30);

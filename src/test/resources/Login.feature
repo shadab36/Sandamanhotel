@@ -6,7 +6,7 @@ Feature: Login test on mobile devices
 						Then he/she click on login CTA. 
 						Then he/she provides the userEmail as "<UserEmail>". 
 						Then he/she provides the password "<Password>". 
-						Then he/she click on login cta. 
+						Then click on login cta. 
 						Then he/she verify "<PasswordVal>" for "<Password>" validation message for password. 
 						And he/she "<SignIn_ErrorMsg>" for "<UserEmail>" and "<Password>" for invalid credentials. 
 						

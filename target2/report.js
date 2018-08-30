@@ -188,14 +188,14 @@ formatter.match({
   "location": "Sandman_Hotel.navigates_to_www_com_sandman_mobiusbookingengine()"
 });
 formatter.result({
-  "duration": 8878426504,
+  "duration": 12203277604,
   "status": "passed"
 });
 formatter.match({
   "location": "Sandman_Hotel.he_she_click_on_login_CTA()"
 });
 formatter.result({
-  "duration": 3522929586,
+  "duration": 2244962994,
   "status": "passed"
 });
 formatter.match({
@@ -208,7 +208,7 @@ formatter.match({
   "location": "Sandman_Hotel.he_she_provides_the_userEmail_as(String)"
 });
 formatter.result({
-  "duration": 5249585222,
+  "duration": 2453153937,
   "status": "passed"
 });
 formatter.match({
@@ -221,21 +221,21 @@ formatter.match({
   "location": "Sandman_Hotel.he_she_login_the_app(String)"
 });
 formatter.result({
-  "duration": 2831521998,
+  "duration": 273788365,
   "status": "passed"
 });
 formatter.match({
   "location": "Sandman_Hotel.he_she_minimize_the_booking_banner()"
 });
 formatter.result({
-  "duration": 2957627944,
+  "duration": 2184951802,
   "status": "passed"
 });
 formatter.match({
   "location": "Sandman_Hotel.he_she_click_on_login()"
 });
 formatter.result({
-  "duration": 5070042760,
+  "duration": 3347609353,
   "status": "passed"
 });
 formatter.match({
@@ -252,7 +252,7 @@ formatter.match({
   "location": "Sandman_Hotel.he_she_verify_for_validation_message_for_password(String,String)"
 });
 formatter.result({
-  "duration": 419556,
+  "duration": 409334,
   "status": "passed"
 });
 formatter.match({
@@ -273,7 +273,7 @@ formatter.match({
   "location": "Sandman_Hotel.he_she_for_and_for_invalid_credentials(String,String,String)"
 });
 formatter.result({
-  "duration": 476001,
+  "duration": 388444,
   "status": "passed"
 });
 formatter.scenario({
@@ -349,14 +349,14 @@ formatter.match({
   "location": "Sandman_Hotel.navigates_to_www_com_sandman_mobiusbookingengine()"
 });
 formatter.result({
-  "duration": 377350725,
+  "duration": 5378400949,
   "status": "passed"
 });
 formatter.match({
   "location": "Sandman_Hotel.he_she_click_on_login_CTA()"
 });
 formatter.result({
-  "duration": 415034331,
+  "duration": 2173090008,
   "status": "passed"
 });
 formatter.match({
@@ -369,9 +369,8 @@ formatter.match({
   "location": "Sandman_Hotel.he_she_provides_the_userEmail_as(String)"
 });
 formatter.result({
-  "duration": 328064437,
-  "error_message": "org.openqa.selenium.UnsupportedCommandException: The test with session id 6359665af14a4944bce2276fd7e69cbc has already finished, and can\u0027t receive further commands.\nYou can learn more at https://saucelabs.com/jobs/6359665af14a4944bce2276fd7e69cbc\nFor help, please check https://wiki.saucelabs.com/display/DOCS/Common+Error+Messages\nCommand duration or timeout: 328 milliseconds\nBuild info: version: \u00273.4.0\u0027, revision: \u0027unknown\u0027, time: \u0027unknown\u0027\nSystem info: host: \u0027AMW-G1\u0027, ip: \u0027172.23.52.33\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u00271.8.0_131\u0027\nDriver info: org.openqa.selenium.remote.RemoteWebDriver\nCapabilities [{mobileEmulationEnabled\u003dfalse, hasTouchScreen\u003dfalse, platform\u003dXP, acceptSslCerts\u003dfalse, acceptInsecureCerts\u003dfalse, webStorageEnabled\u003dtrue, takesScreenshot\u003dtrue, browserName\u003dchrome, javascriptEnabled\u003dtrue, setWindowRect\u003dtrue, unexpectedAlertBehaviour\u003d, applicationCacheEnabled\u003dfalse, rotatable\u003dfalse, networkConnectionEnabled\u003dfalse, chrome\u003d{chromedriverVersion\u003d2.37.544315 (730aa6a5fdba159ac9f4c1e8cbc59bf1b5ce12b7), userDataDir\u003dC:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\scoped_dir2996_31754}, takesHeapSnapshot\u003dtrue, pageLoadStrategy\u003dnormal, hasMetadata\u003dtrue, handlesAlerts\u003dtrue, databaseEnabled\u003dfalse, version\u003d64.0.3282.119, browserConnectionEnabled\u003dfalse, nativeEvents\u003dtrue, webdriver.remote.sessionid\u003d6359665af14a4944bce2276fd7e69cbc, locationContextEnabled\u003dtrue, cssSelectorsEnabled\u003dtrue}]\nSession ID: 6359665af14a4944bce2276fd7e69cbc\n*** Element info: {Using\u003dname, value\u003demail}\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)\r\n\tat org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:485)\r\n\tat org.openqa.selenium.By$ByName.findElement(By.java:303)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)\r\n\tat TestRunner.loginSteps.Sandman_Hotel.he_she_provides_the_userEmail_as(Sandman_Hotel.java:76)\r\n\tat ✽.Then he/she provides the userEmail as \"test+art@2pventures.com\".(src/test/resources/Sandman.feature:76)\r\n",
-  "status": "failed"
+  "duration": 2381292064,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -383,19 +382,22 @@ formatter.match({
   "location": "Sandman_Hotel.he_she_login_the_app(String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 286025270,
+  "status": "passed"
 });
 formatter.match({
   "location": "Sandman_Hotel.he_she_minimize_the_booking_banner()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 2130215285,
+  "status": "passed"
 });
 formatter.match({
   "location": "Sandman_Hotel.he_she_click_on_login()"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 3217285623,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -411,7 +413,8 @@ formatter.match({
   "location": "Sandman_Hotel.he_she_verify_for_validation_message_for_password(String,String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 340001,
+  "status": "passed"
 });
 formatter.match({
   "arguments": [
@@ -431,7 +434,8 @@ formatter.match({
   "location": "Sandman_Hotel.he_she_for_and_for_invalid_credentials(String,String,String)"
 });
 formatter.result({
-  "status": "skipped"
+  "duration": 420000,
+  "status": "passed"
 });
 formatter.scenario({
   "line": 87,
@@ -504,90 +508,4 @@ formatter.step({
 });
 formatter.match({
   "location": "Sandman_Hotel.navigates_to_www_com_sandman_mobiusbookingengine()"
-});
-formatter.result({
-  "duration": 338451563,
-  "status": "passed"
-});
-formatter.match({
-  "location": "Sandman_Hotel.he_she_click_on_login_CTA()"
-});
-formatter.result({
-  "duration": 345470683,
-  "status": "passed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "test+art01@2pventures.com",
-      "offset": 34
-    }
-  ],
-  "location": "Sandman_Hotel.he_she_provides_the_userEmail_as(String)"
-});
-formatter.result({
-  "duration": 354028028,
-  "error_message": "org.openqa.selenium.UnsupportedCommandException: The test with session id 6359665af14a4944bce2276fd7e69cbc has already finished, and can\u0027t receive further commands.\nYou can learn more at https://saucelabs.com/jobs/6359665af14a4944bce2276fd7e69cbc\nFor help, please check https://wiki.saucelabs.com/display/DOCS/Common+Error+Messages\nCommand duration or timeout: 353 milliseconds\nBuild info: version: \u00273.4.0\u0027, revision: \u0027unknown\u0027, time: \u0027unknown\u0027\nSystem info: host: \u0027AMW-G1\u0027, ip: \u0027172.23.52.33\u0027, os.name: \u0027Windows 10\u0027, os.arch: \u0027amd64\u0027, os.version: \u002710.0\u0027, java.version: \u00271.8.0_131\u0027\nDriver info: org.openqa.selenium.remote.RemoteWebDriver\nCapabilities [{mobileEmulationEnabled\u003dfalse, hasTouchScreen\u003dfalse, platform\u003dXP, acceptSslCerts\u003dfalse, acceptInsecureCerts\u003dfalse, webStorageEnabled\u003dtrue, takesScreenshot\u003dtrue, browserName\u003dchrome, javascriptEnabled\u003dtrue, setWindowRect\u003dtrue, unexpectedAlertBehaviour\u003d, applicationCacheEnabled\u003dfalse, rotatable\u003dfalse, networkConnectionEnabled\u003dfalse, chrome\u003d{chromedriverVersion\u003d2.37.544315 (730aa6a5fdba159ac9f4c1e8cbc59bf1b5ce12b7), userDataDir\u003dC:\\Users\\ADMINI~1\\AppData\\Local\\Temp\\scoped_dir2996_31754}, takesHeapSnapshot\u003dtrue, pageLoadStrategy\u003dnormal, hasMetadata\u003dtrue, handlesAlerts\u003dtrue, databaseEnabled\u003dfalse, version\u003d64.0.3282.119, browserConnectionEnabled\u003dfalse, nativeEvents\u003dtrue, webdriver.remote.sessionid\u003d6359665af14a4944bce2276fd7e69cbc, locationContextEnabled\u003dtrue, cssSelectorsEnabled\u003dtrue}]\nSession ID: 6359665af14a4944bce2276fd7e69cbc\n*** Element info: {Using\u003dname, value\u003demail}\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)\r\n\tat sun.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:62)\r\n\tat sun.reflect.DelegatingConstructorAccessorImpl.newInstance(DelegatingConstructorAccessorImpl.java:45)\r\n\tat java.lang.reflect.Constructor.newInstance(Constructor.java:423)\r\n\tat org.openqa.selenium.remote.ErrorHandler.createThrowable(ErrorHandler.java:215)\r\n\tat org.openqa.selenium.remote.ErrorHandler.throwIfResponseFailed(ErrorHandler.java:167)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:671)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:410)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElementByName(RemoteWebDriver.java:485)\r\n\tat org.openqa.selenium.By$ByName.findElement(By.java:303)\r\n\tat org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:402)\r\n\tat TestRunner.loginSteps.Sandman_Hotel.he_she_provides_the_userEmail_as(Sandman_Hotel.java:76)\r\n\tat ✽.Then he/she provides the userEmail as \"test+art01@2pventures.com\".(src/test/resources/Sandman.feature:76)\r\n",
-  "status": "failed"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "Test1234",
-      "offset": 30
-    }
-  ],
-  "location": "Sandman_Hotel.he_she_login_the_app(String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "Sandman_Hotel.he_she_minimize_the_booking_banner()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "location": "Sandman_Hotel.he_she_click_on_login()"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "",
-      "offset": 15
-    },
-    {
-      "val": "Test1234",
-      "offset": 22
-    }
-  ],
-  "location": "Sandman_Hotel.he_she_verify_for_validation_message_for_password(String,String)"
-});
-formatter.result({
-  "status": "skipped"
-});
-formatter.match({
-  "arguments": [
-    {
-      "val": "",
-      "offset": 8
-    },
-    {
-      "val": "test+art01@2pventures.com",
-      "offset": 15
-    },
-    {
-      "val": "Test1234",
-      "offset": 47
-    }
-  ],
-  "location": "Sandman_Hotel.he_she_for_and_for_invalid_credentials(String,String,String)"
-});
-formatter.result({
-  "status": "skipped"
-});
 });

@@ -138,8 +138,8 @@ public class SetupClass {
 		capability.setCapability("name",  "Automation tests");
 		
 		System.out.println("platform "+ platform);
-		System.out.println("BrowerName"+ browserName);
-		System.out.println("platform vesion"+ platformVersion);
+		System.out.println("BrowerName"+  browserName);
+		System.out.println("platform vesion"+  platformVersion);
 		
 		driver = new RemoteWebDriver(new URL(sauceURL), capability);
 		
