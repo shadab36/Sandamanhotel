@@ -48,7 +48,7 @@ public class SetupClass {
 	public static String chrom_mobile;
 	public static String local_IE11browser;
 	public static String local_IE11;
-
+public static String Seleniumdriver;
 	@BeforeClass
 	public static void before_Class() throws Exception {
 		PropertyConfigurator.configure("log4j.properties");
@@ -130,9 +130,11 @@ public class SetupClass {
 		browserName = System.getenv("SELENIUM_BROWSER");
 		platform = System.getenv("SELENIUM_PLATFORM");
 		platformVersion = System.getenv("SELENIUM_VERSION");
+		Seleniumdriver=System.getenv("SELENIUM_DRIVER");
 		System.out.println("platform :"+ platform);
 		System.out.println("BrowerName: "+  browserName);
 		System.out.println("platform vesion: "+  platformVersion);
+		System.out.println("seleniumDriver: "+ Seleniumdriver);
 		DesiredCapabilities capability = new DesiredCapabilities();
 		capability.setCapability("platform", platform);
 		capability.setBrowserName(browserName);
